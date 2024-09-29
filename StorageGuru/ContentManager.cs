@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using UnityEngine;
+using UnityEngine.ImageConversionModule;
 
 namespace StorageGuru
 {
@@ -42,7 +43,7 @@ namespace StorageGuru
             {
                 byte[] iconBytes = File.ReadAllBytes(filepath);
                 Texture2D tex = new Texture2D(0, 0);
-                tex.LoadImage(iconBytes);
+                tex.LoadImage(tex, iconBytes);
                 return Util.applyColor(tex);
             }
 

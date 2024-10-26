@@ -27,15 +27,16 @@ namespace StorageGuru
 
 			List<Module> storageModules = Module.getCategoryModules(Module.Category.Storage);
 
-			if (character.getLoadedResource() is Resource resource)
-			{
-				// Shortlist only modules that allow this resource
-				storageModules = ImprovedResourceStorage.GetValidModules(storageModules, resource.getResourceType());
-			}
-
 			if (storageModules != null)
 			{
-				int count = storageModules.Count;
+
+                if (character.getLoadedResource() is Resource resource)
+                {
+                    // Shortlist only modules that allow this resource
+                    storageModules = ImprovedResourceStorage.GetValidModules(storageModules, resource.getResourceType());
+                }
+
+                int count = storageModules.Count;
 				for (int i = 0; i < count; i++)
 				{
 					Module module = storageModules[i];
